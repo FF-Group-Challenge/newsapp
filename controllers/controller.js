@@ -3,7 +3,9 @@ const bcrypt = require('bcryptjs')
 const { User } = require("../models/index")
 const { generateToken } = require('../helpers/generateToken')
 const {OAuth2Client} = require('google-auth-library');
-const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+const axios = require('axios');
 
 class Controller {
 
@@ -98,15 +100,42 @@ class Controller {
   //-------------NEWS CONTROLLER------------
 
   static newsSpace(req, res, next) {
-    res.send('news-space')
+    axios({
+      url: `https://www.spaceflightnewsapi.net/api/v2/articles`,
+      method: "GET"
+    })
+    .then(response => {
+      res.json(response.data)
+    })
+    .catch(next => {
+      next(err)
+    })
   }
 
   static newsGlobal(req, res, next) {
-    res.send('news-global')
+    axios({
+      url: `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`,
+      method: "GET"
+    })
+    .then(response => {
+      res.json(response.data)
+    })
+    .catch(next => {
+      next(err)
+    })
   }
 
   static newsIndonesia(req, res, next) {
-    res.send('news-indonesia')
+    axios({
+      url: `https://www.news.developeridn.com/nasional`,
+      method: "GET"
+    })
+    .then(response => {
+      res.json(response.data)
+    })
+    .catch(next => {
+      next(err)
+    })
   }
 
 }
