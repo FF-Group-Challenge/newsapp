@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmpty: {
+        notNull: {
           msg: "Name cannot be empty"
         }
       }
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmpty: {
+        notNull: {
           msg: "Email cannot be empty"
         },
         isEmail: {
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmpty: {
+        notNull: {
           msg: "Password cannot be empty"
         }
       }
