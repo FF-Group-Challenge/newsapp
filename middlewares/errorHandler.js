@@ -23,6 +23,9 @@ const errorHandler = (err, req, res, next) => {
   } else if (err.name === "ACCESS_DENIED") {
     statusCode = 404
     message = "Invalid Access Authorization"
+  } else if (err.name === "AUTHENTICATION_FAILED") {
+    statusCode = 401
+    message = "User not Authenticated"
   } else {
     statusCode = 500
     message = "Internal Server Error"

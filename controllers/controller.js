@@ -60,7 +60,7 @@ class Controller {
 
   static googleLogin(req, res, next) {
     let payload
-    //nama token google di jquery
+    //nama token google di jquery ?
     const token = req.body.googleToken
     client.verifyIdToken({
       idToken: token,
