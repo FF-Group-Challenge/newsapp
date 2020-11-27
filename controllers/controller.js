@@ -107,7 +107,7 @@ class Controller {
     .then(response => {
       res.json(response.data)
     })
-    .catch(next => {
+    .catch(err => {
       next(err)
     })
   }
@@ -120,7 +120,7 @@ class Controller {
     .then(response => {
       res.json(response.data)
     })
-    .catch(next => {
+    .catch(err => {
       next(err)
     })
   }
@@ -133,7 +133,7 @@ class Controller {
     .then(response => {
       res.json(response.data)
     })
-    .catch(next => {
+    .catch(err => {
       next(err)
     })
   }
