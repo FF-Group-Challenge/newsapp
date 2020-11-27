@@ -29,7 +29,8 @@ class Controller {
       }
     })
     .then(data => {
-      res.status(201).json(data)
+      const access_token = generateToken(data)
+      res.status(201).json({access_token})
     })
     .catch(err => {
       next(err)
