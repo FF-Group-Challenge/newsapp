@@ -21,7 +21,7 @@ const errorHandler = (err, req, res, next) => {
     statusCode = 400
     message = "Email or password is incorrect"
   } else if (err.name === "ACCESS_DENIED") {
-    statusCode = 404
+    statusCode = 403
     message = "Invalid Access Authorization"
   } else if (err.name === "AUTHENTICATION_FAILED") {
     statusCode = 401
